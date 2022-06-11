@@ -4,5 +4,10 @@
 >gfg <- reshape(gfg,idvar = "subgroup",
 +                timevar = "grp",
 +                direction = "wide")
->  
+> row.names(gfg) <- gfg$subgroup
+> gfg <- gfg[ , 2:ncol(gfg)]
+> colnames(gfg)<-c("Agr","Art","Cad","Pr in","Emp","Ouv")
+> gfg <- as.matrix(gfg)
+> barplot(height = gfg,main="Population Active",beside = TRUE)
+> barplot(height = gfg,main="Population Active",fill=subgroup,beside = TRUE)
 
